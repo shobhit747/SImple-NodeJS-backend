@@ -7,7 +7,7 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "start": "node --env-file=.env --watch ./src/server.ts"
+    "start": "node ./src/server.ts"
   },
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.10",

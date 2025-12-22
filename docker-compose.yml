@@ -1,0 +1,17 @@
+services:
+  node_backend:
+    container_name: node_backend
+    restart: always
+    build: .
+    environment:
+      - SECRET=${SECRET}
+      - PORT=${PORT}
+    ports:
+      - 8000:${PORT}
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo:8.2
+    ports:
+      - 5000:27017

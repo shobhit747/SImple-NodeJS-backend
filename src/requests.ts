@@ -12,7 +12,10 @@ let getRequestHandler = async (req: http.IncomingMessage,res: http.ServerRespons
         try {            
             const [_, route, resource] = url;
             if(url.length === 2){
-                if(route === 'books'){
+                if(route === ''){
+                    res.end(JSON.stringify({node_backend_message: 'NodeJS+Monogdb server running.'}))
+                }
+                else if(route === 'books'){
                     const user = authenticationHandler(req,res);
                     if(user){
                         const data = await books.find().toArray();
